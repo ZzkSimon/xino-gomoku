@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+
+.mode-btn:hover {
+    background: linear-gradient(145deg, #e0e0e0, #bababa);
+    transform: translateY(-2px);
+}
+
+.mode-btn.active {
+    background: linear-gradient(145deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: inset 5px 5px 10px #5a6bc7, inset -5px -5px 10px #8b7bc2;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.player-info span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.restart-btn {
+    background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.restart-btn:hover {
+    background: linear-gradient(145deg, #ff5757, #e04848);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.game-board-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#game-board {
+    border: 4px solid #8B4513;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #DEB887;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+    transition: all 0.3s ease;
+    /* 移动端优化 */
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#game-board:hover {
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.4);
+    transform: translateY(-2px);
+}
+
+.footer {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(118, 75, 162, 0.1);
+    border-radius: 15px;
+    border: 2px solid rgba(118, 75, 162, 0.2);
+}
+
+.footer p {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .mode-selector {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .mode-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+        flex: 1;
+        max-width: 120px;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 12px 15px;
+    }
+    
+    .game-info span {
+        font-size: 15px;
+    }
+    
+    .restart-btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    #game-board {
+        max-width: calc(100vw - 40px);
+        max-height: calc(100vh - 300px);
+        width: auto;
+        height: auto;
+        border-width: 3px;
+    }
+    
+    .footer p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .container {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+    
+    .mode-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .game-info {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .game-info span {
+        font-size: 14px;
+    }
+    
+    .restart-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+    
+    #game-board {
+        max-width: calc(100vw - 30px);
+        max-height: calc(100vh - 250px);
+        border-width: 2px;
+        /* 确保触摸友好 */
+        touch-action: manipulation;
+    }
+    
+    .footer {
+        margin-top: 15px;
+        padding: 10px;
+    }
+    
+    .footer p {
+        font-size: 13px;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 棋子点击效果 */
+.piece-effect {
+    animation: placepiece 0.3s ease-out;
+}
+
+@keyframes placepiece {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 微信分享样式优化 */
+@media (max-width: 414px) {
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 5px;
+    }
+    
+    .container {
+        border-radius: 15px;
+        padding: 15px;
+        margin: 5px;
+    }
+    
+    #game-board {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+    }
+}
